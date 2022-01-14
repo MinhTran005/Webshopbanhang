@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Webshopbanhang.data.Entities.Webshopbanhang.Data.Entities;
 using Webshopbanhang.data.Enums;
 
 namespace Webshopbanhang.data.Entities

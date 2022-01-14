@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Webshopbanhang.data.Entities
+namespace Webshopbanhang.Data.Entities
 {
-    public class AppRole :IdentityRole<Guid>
+    public class AppRole : IdentityRole<Guid>
     {
         public string Description { get; set; }
     }

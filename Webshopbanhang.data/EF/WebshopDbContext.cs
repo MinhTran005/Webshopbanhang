@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Webshopbanhang.Data.Configurations;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,7 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Webshopbanhang.data.Configruations;
 using Webshopbanhang.data.Entities;
+using Webshopbanhang.data.Entities.Webshopbanhang.Data.Entities;
 using Webshopbanhang.data.Extensions;
+using Webshopbanhang.Data.Entities;
 
 namespace Webshopbanhang.data.EF
 {
@@ -37,11 +40,17 @@ namespace Webshopbanhang.data.EF
             modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
             modelBuilder.ApplyConfiguration(new AppUserConfiguration());
             //data seeding
-            modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
-            modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x=>new {x.UserId,x.RoleId });
-            modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("AppUserLogins").HasKey(x=>x.UserId);
-            modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims");
-            modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens").HasKey(x=>x.UserId);
+            modelBuilder.Entity<IdentityUserRole<Guid>>().HasKey(x=>new {x.UserId,x.RoleId });
+            modelBuilder.Entity<IdentityUserLogin<Guid>>().HasKey(x=>x.UserId);
+            modelBuilder.Entity<IdentityUserToken<Guid>>().HasKey(x=>x.UserId);
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            {
+                var tableName = entityType.GetTableName();
+                if (tableName.StartsWith("AspNet"))
+                {
+                    entityType.SetTableName(tableName.Substring(6));
+                }
+            }
             modelBuilder.Seed();
             base.OnModelCreating(modelBuilder);
         }

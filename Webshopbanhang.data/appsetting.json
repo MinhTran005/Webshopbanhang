@@ -1,5 +1,5 @@
 {
   "ConnectionStrings": {
-    "WebshopbanhangDb": "Server=DESKTOP-QOLS1P3\\SQLEXPRESS;Database=Webshopbanhang;Trusted_Connection=True;"
+    "WebshopbanhangDb": "Server=DESKTOP-QOLS1P3\\SQLEXPRESS;Database=Webshopbanhang4;Trusted_Connection=True;"
   }
 }

@@ -10,8 +10,8 @@ using Webshopbanhang.data.EF;
 namespace Webshopbanhang.data.Migrations
 {
     [DbContext(typeof(WebshopDbContext))]
-    [Migration("20220114043613_Idb1")]
-    partial class Idb1
+    [Migration("20220114075843_db99")]
+    partial class db99
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -122,38 +122,7 @@ namespace Webshopbanhang.data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Webshopbanhang.data.Entities.AppConfig", b =>
-                {
-                    b.Property<string>("Key")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Value")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Key");
-
-                    b.ToTable("AppConfigs");
-
-                    b.HasData(
-                        new
-                        {
-                            Key = "HomeTitle",
-                            Value = "this is home page"
-                        },
-                        new
-                        {
-                            Key = "HomeKeyword",
-                            Value = "this is Keywor"
-                        },
-                        new
-                        {
-                            Key = "HomeDesciption",
-                            Value = "this is home page"
-                        });
-                });
-
-            modelBuilder.Entity("Webshopbanhang.data.Entities.AppRole", b =>
+            modelBuilder.Entity("Webshopbanhang.Data.Entities.AppRole", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -186,83 +155,35 @@ namespace Webshopbanhang.data.Migrations
                     b.ToTable("AspNetRoles");
                 });
 
-            modelBuilder.Entity("Webshopbanhang.data.Entities.AppUser", b =>
+            modelBuilder.Entity("Webshopbanhang.data.Entities.AppConfig", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Key")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Dob")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("FirstName")
+                    b.Property<string>("Value")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("Key");
 
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
+                    b.ToTable("AppConfigs");
 
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers");
+                    b.HasData(
+                        new
+                        {
+                            Key = "HomeTitle",
+                            Value = "this is home page"
+                        },
+                        new
+                        {
+                            Key = "HomeKeyword",
+                            Value = "this is Keywor"
+                        },
+                        new
+                        {
+                            Key = "HomeDesciption",
+                            Value = "this is home page"
+                        });
                 });
 
             modelBuilder.Entity("Webshopbanhang.data.Entities.Cart", b =>
@@ -591,7 +512,7 @@ namespace Webshopbanhang.data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2022, 1, 14, 11, 36, 13, 15, DateTimeKind.Local).AddTicks(8809),
+                            DateCreated = new DateTime(2022, 1, 14, 14, 58, 41, 807, DateTimeKind.Local).AddTicks(614),
                             OrigingalPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,
@@ -782,9 +703,88 @@ namespace Webshopbanhang.data.Migrations
                     b.ToTable("Transactions");
                 });
 
+            modelBuilder.Entity("Webshopbanhang.data.Entities.Webshopbanhang.Data.Entities.AppUser", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Dob")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
-                    b.HasOne("Webshopbanhang.data.Entities.AppRole", null)
+                    b.HasOne("Webshopbanhang.Data.Entities.AppRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -793,7 +793,7 @@ namespace Webshopbanhang.data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
                 {
-                    b.HasOne("Webshopbanhang.data.Entities.AppUser", null)
+                    b.HasOne("Webshopbanhang.data.Entities.Webshopbanhang.Data.Entities.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -802,7 +802,7 @@ namespace Webshopbanhang.data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
-                    b.HasOne("Webshopbanhang.data.Entities.AppUser", null)
+                    b.HasOne("Webshopbanhang.data.Entities.Webshopbanhang.Data.Entities.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -811,13 +811,13 @@ namespace Webshopbanhang.data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
                 {
-                    b.HasOne("Webshopbanhang.data.Entities.AppRole", null)
+                    b.HasOne("Webshopbanhang.Data.Entities.AppRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Webshopbanhang.data.Entities.AppUser", null)
+                    b.HasOne("Webshopbanhang.data.Entities.Webshopbanhang.Data.Entities.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -826,7 +826,7 @@ namespace Webshopbanhang.data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
-                    b.HasOne("Webshopbanhang.data.Entities.AppUser", null)
+                    b.HasOne("Webshopbanhang.data.Entities.Webshopbanhang.Data.Entities.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -841,7 +841,7 @@ namespace Webshopbanhang.data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Webshopbanhang.data.Entities.AppUser", "AppUser")
+                    b.HasOne("Webshopbanhang.data.Entities.Webshopbanhang.Data.Entities.AppUser", "AppUser")
                         .WithMany("Carts")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -873,7 +873,7 @@ namespace Webshopbanhang.data.Migrations
 
             modelBuilder.Entity("Webshopbanhang.data.Entities.Order", b =>
                 {
-                    b.HasOne("Webshopbanhang.data.Entities.AppUser", "AppUser")
+                    b.HasOne("Webshopbanhang.data.Entities.Webshopbanhang.Data.Entities.AppUser", "AppUser")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -941,22 +941,13 @@ namespace Webshopbanhang.data.Migrations
 
             modelBuilder.Entity("Webshopbanhang.data.Entities.Transaction", b =>
                 {
-                    b.HasOne("Webshopbanhang.data.Entities.AppUser", "AppUser")
+                    b.HasOne("Webshopbanhang.data.Entities.Webshopbanhang.Data.Entities.AppUser", "AppUser")
                         .WithMany("Transactions")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("AppUser");
-                });
-
-            modelBuilder.Entity("Webshopbanhang.data.Entities.AppUser", b =>
-                {
-                    b.Navigation("Carts");
-
-                    b.Navigation("Orders");
-
-                    b.Navigation("Transactions");
                 });
 
             modelBuilder.Entity("Webshopbanhang.data.Entities.Category", b =>
@@ -987,6 +978,15 @@ namespace Webshopbanhang.data.Migrations
                     b.Navigation("ProductInCategories");
 
                     b.Navigation("ProductTranslations");
+                });
+
+            modelBuilder.Entity("Webshopbanhang.data.Entities.Webshopbanhang.Data.Entities.AppUser", b =>
+                {
+                    b.Navigation("Carts");
+
+                    b.Navigation("Orders");
+
+                    b.Navigation("Transactions");
                 });
 #pragma warning restore 612, 618
         }

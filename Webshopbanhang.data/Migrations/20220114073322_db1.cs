@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Webshopbanhang.data.Migrations
 {
-    public partial class Idb1 : Migration
+    public partial class db1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -477,7 +477,7 @@ namespace Webshopbanhang.data.Migrations
             migrationBuilder.InsertData(
                 table: "Products",
                 columns: new[] { "Id", "DateCreated", "OrigingalPrice", "Price", "SeoAlias", "Stock" },
-                values: new object[] { 1, new DateTime(2022, 1, 14, 11, 36, 13, 15, DateTimeKind.Local).AddTicks(8809), 100000m, 200000m, null, 0 });
+                values: new object[] { 1, new DateTime(2022, 1, 14, 14, 33, 20, 972, DateTimeKind.Local).AddTicks(5794), 100000m, 200000m, null, 0 });
 
             migrationBuilder.InsertData(
                 table: "CategoryTranslations",
