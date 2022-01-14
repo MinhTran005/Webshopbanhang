@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Webshopbanhang.data.EF;
 
 namespace Webshopbanhang.data.Migrations
 {
     [DbContext(typeof(WebshopDbContext))]
-    partial class WebshopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220114074644_db6")]
+    partial class db6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -510,7 +512,7 @@ namespace Webshopbanhang.data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2022, 1, 14, 14, 58, 41, 807, DateTimeKind.Local).AddTicks(614),
+                            DateCreated = new DateTime(2022, 1, 14, 14, 46, 43, 298, DateTimeKind.Local).AddTicks(6801),
                             OrigingalPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,

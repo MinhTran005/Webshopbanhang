@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Webshopbanhang.data.Entities.Webshopbanhang.Data.Entities;
 
 namespace Webshopbanhang.data.Entities
 {
@@ -18,5 +19,6 @@ namespace Webshopbanhang.data.Entities
         public Product Product { get; set; }
 
         public DateTime DateCreated { get; set; }
+        public AppUser AppUser { get; set; }
     }
 }
