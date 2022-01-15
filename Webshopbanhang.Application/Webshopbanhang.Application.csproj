@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Webshopbanhang.data\Webshopbanhang.data.csproj" />
+    <ProjectReference Include="..\Webshopbanhang.Utilities\Webshopbanhang.Utilities.csproj" />
   </ItemGroup>
 
 </Project>

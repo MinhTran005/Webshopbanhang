@@ -21,5 +21,6 @@ namespace Webshopbanhang.data.Entities
         public List<Cart> Carts { get; set; }
 
         public List<ProductTranslation> ProductTranslations { get; set; }
+        public object OriginalPrice { get; set; }
     }
 }

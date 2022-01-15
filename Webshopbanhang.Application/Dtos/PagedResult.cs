@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Webshopbanhang.Application.Dtos
 {
-   public class PageViewModel<T>
+   public class PagedResult<T>
     {
         public List<T> Items { get; set; }
         public int TotalRecord { get; set; }
